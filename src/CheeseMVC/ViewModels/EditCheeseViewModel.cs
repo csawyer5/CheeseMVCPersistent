@@ -8,22 +8,12 @@ using System.Threading.Tasks;
 
 namespace CheeseMVC.ViewModels
 {
-    public class AddCheeseViewModel
+    public class EditCheeseViewModel : AddCheeseViewModel
     {
         [Required]
-        [Display(Name = "Cheese Name")]
-        public string Name { get; set; }
+        public int CheeseID { get; set; }
 
-        [Required(ErrorMessage = "You must give your cheese a description")]
-        public string Description { get; set; }
-
-        [Required]
-        [Display(Name = "Category")]
-        public int CategoryID { get; set; }
-
-        public List<SelectListItem> Categories { get; set; }
-
-        public AddCheeseViewModel(IEnumerable<CheeseCategory> categories)
+        public EditCheeseViewModel(IEnumerable<CheeseCategory> categories)
         {
             Categories = new List<SelectListItem>();
             foreach (CheeseCategory cat in categories)
@@ -36,7 +26,7 @@ namespace CheeseMVC.ViewModels
             }
 
         }
-        public AddCheeseViewModel()
+        public EditCheeseViewModel()
         {
         }
     }
